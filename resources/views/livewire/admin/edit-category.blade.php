@@ -1,0 +1,50 @@
+<div>
+
+    <form wire:submit="update({{ $category->id }})">
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label class="form-label">Название</label>
+                    <input wire:model="title" type="text" class="form-control @error('title') is-invalid @enderror" value="{{ $category->title }}">
+                    @error('title')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label class="form-label">Название на английском (slug)</label>
+                    <input wire:model="slug" type="text" class="form-control @error('slug') is-invalid @enderror" value="{{ $category->slug }}">
+                    @error('slug')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label class="form-label">Сортировка</label>
+                    <input wire:model="sort" type="text" class="form-control @error('sort') is-invalid @enderror" value="{{ $category->sort }}">
+                    @error('sort')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-start">
+            <button type="submit" class="btn btn-primary  me-6">
+                Сохранить
+            </button>
+        </div>
+
+    </form>
+</div>
